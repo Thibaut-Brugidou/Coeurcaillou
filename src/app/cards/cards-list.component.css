@@ -1,0 +1,14 @@
+.cards-list {
+  list-style-type: none;
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+.cards-list li {
+  display: inline-block;
+  min-width: 200px;
+  margin: 10px 15px;
+  cursor: pointer;
+}
