@@ -5,10 +5,14 @@
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
-}
-.cards-list li {
-  display: inline-block;
-  min-width: 200px;
-  margin: 10px 15px;
-  cursor: pointer;
+  li {
+    display: inline-block;
+    min-width: 200px;
+    margin: 10px 15px;
+    cursor: pointer;
+  }
+  .selected .card {
+    transform: scale(1.03);
+    border: 3px solid #4a0;
+  }
 }

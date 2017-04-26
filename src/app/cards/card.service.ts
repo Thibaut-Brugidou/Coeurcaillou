@@ -5,10 +5,12 @@ import { Card } from './card';
 @Injectable()
 export class CardService {
 
-	cards : Card[];
+	selectedCard: number;
+	cards: Card[];
 
 	constructor() {
 		this.cards = CARDS;
+		this.selectedCard = 0;
 	}
 
 	addCard(cardData: {cardName: string, cardAttack: number, cardDefence: number}) {
@@ -19,6 +21,15 @@ export class CardService {
 	  		defence: cardData.cardDefence,
 	  		picture: 'arthas.jpg'
 	  	});
+	}
+
+	selectCard(cardNumber) {
+		console.log(cardNumber);
+		this.selectedCard = cardNumber;
+	}
+
+	getSelectedCard(): Card {
+		return this.cards[this.selectedCard];
 	}
 
 	getCards(): Card[] {
