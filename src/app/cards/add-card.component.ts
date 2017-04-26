@@ -1,23 +1,27 @@
-import { Component, OnInit, EventEmitter, Output, } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
+import { CardService } from './card.service';
 
 @Component({
   selector: 'cc-add-card',
   templateUrl: './add-card.component.html',
-  styleUrls: ['./add-card.component.css']
+  styleUrls: ['./add-card.component.less']
 })
 export class AddCardComponent implements OnInit {
-  @Output() cardCreated = new EventEmitter<{cardName: string, cardAttack: string, cardDefence: string}>();
+	@ViewChild('cardName') name:ElementRef;
+	@ViewChild('cardAttack') attack:ElementRef;
+	@ViewChild('cardDefence') defence:ElementRef;
 
-  constructor() { }
+  constructor(private cardService: CardService) { }
 
   ngOnInit() {
   }
 
-  onAddCard(nameInput: HTMLInputElement, attackInput: HTMLInputElement, defenceInput: HTMLInputElement) {
-  	this.cardCreated.emit({
-  		cardName: nameInput.value,
-  		cardAttack: attackInput.value,
-  		cardDefence: defenceInput.value
-  	})
+  onAddCard() {
+  	let newCard = {
+  		cardName: this.name.nativeElement.value,
+  		cardAttack: +this.attack.nativeElement.value,
+  		cardDefence: +this.defence.nativeElement.value
+  	};
+  	this.cardService.addCard(newCard);
   }
 }

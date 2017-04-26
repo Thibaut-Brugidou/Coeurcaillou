@@ -20,7 +20,7 @@
       "prefix": "cc",
       "styles": [
         "bootstrap/css/bootstrap.min.css",
-        "styles.css"
+        "styles.less"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

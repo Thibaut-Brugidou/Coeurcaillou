@@ -1,29 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Card } from '../cards/card';
-import { CARDS } from '../cards/mock-cards';
+import { CardService } from './card.service';
 
 @Component({
   selector: 'cc-cards-list',
   templateUrl: './cards-list.component.html',
-  styleUrls: ['./cards-list.component.css']
+  styleUrls: ['./cards-list.component.less']
 })
 
-export class CardsListComponent implements OnInit {
+export class CardsListComponent {
 
-  cards = CARDS;
-  selectedCard: Card;
+  constructor(private cardService: CardService) { }
 
-  ngOnInit() {
-  }
-
-  onCardAdded(cardData: {cardName: string, cardAttack: number, cardDefence: number}) {
-  	this.cards.push({
-  		type: 'creature',
-  		name: cardData.cardName,
-  		attack: cardData.cardAttack,
-  		defence: cardData.cardDefence,
-  		picture: 'arthas.jpg'
-  	})
-  }
+  cards: Card[] = this.cardService.getCards();
 
 }

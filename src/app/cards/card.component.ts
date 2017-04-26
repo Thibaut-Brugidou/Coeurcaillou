@@ -5,7 +5,7 @@ import { Card } from './card';
 @Component({
   selector: 'cc-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.css']
+  styleUrls: ['./card.component.less']
 })
 
 export class CardComponent {

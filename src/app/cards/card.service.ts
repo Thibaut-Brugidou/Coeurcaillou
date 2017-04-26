@@ -4,7 +4,24 @@ import { Card } from './card';
 
 @Injectable()
 export class CardService {
-  getCards(): Promise<Card[]> {
-    return Promise.resolve(CARDS);
-  }
+
+	cards : Card[];
+
+	constructor() {
+		this.cards = CARDS;
+	}
+
+	addCard(cardData: {cardName: string, cardAttack: number, cardDefence: number}) {
+	  	this.cards.push({
+	  		type: 'creature',
+	  		name: cardData.cardName,
+	  		attack: cardData.cardAttack,
+	  		defence: cardData.cardDefence,
+	  		picture: 'arthas.jpg'
+	  	});
+	}
+
+	getCards(): Card[] {
+		return this.cards;
+	}
 }
