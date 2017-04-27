@@ -1,8 +1,14 @@
 <div class="card" *ngIf="card">
-	<span class="name">{{card.name}}</span>
-	<img src="../../assets/images/cards/{{card.picture}}" alt=""/>
-	<div class="text">Lorem ipsum sit dolor ....</div>
-	<span class="attack">{{card.attack}}</span>
-	<span class="defence">{{card.defence}}</span>
-	<span class="cost">{{card.cost}}</span>
+	<div class="top">
+		<span class="name">{{card.name}}</span>
+		<span class="cost">${{card.cost}}</span>
+	</div>
+	<div class="wrap-img">
+		<img src="../../assets/images/cards/{{card.picture}}" alt=""/>
+		<div class="text"><b>Provocation</b><p>Lorem ipsum sit dolor...</p></div>
+	</div>
+	<div class="bottom">
+		<span class="attack" title="attack">{{card.attack}}</span>
+		<span class="defence" title="defence">{{card.defence}}</span>
+	</div>
 </div>

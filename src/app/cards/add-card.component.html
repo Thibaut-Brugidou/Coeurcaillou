@@ -1,21 +1,23 @@
 <div class="add-card">
 	<div class="row">
 		<div class="col-xs-12">
-			<label for="Name"></label>
+			<label for="Name">Name</label>
 			<input type="text" class="form-control" placeholder="Name" #cardName>
 		</div>
 		<div class="col-xs-4">
-			<label for="Attack"></label>
+			<label for="Attack">Attack</label>
 			<input type="text" size="2" class="form-control" placeholder="Attack" #cardAttack>
 		</div>
 		<div class="col-xs-4">
-			<label for="Defence"></label>
+			<label for="Defence">Defence</label>
 			<input type="text" size="2" class="form-control" placeholder="Defence" #cardDefence>
 		</div>
 		<div class="col-xs-4">
-			<label for="Cost"></label>
+			<label for="Cost">Cost</label>
 			<input type="text" size="2" class="form-control" placeholder="Cost" #cardCost>
 		</div>
-		<button class="btn btn-primary" (click)="onAddCard()">Créer une carte</button>
+		<div class="col-xs-12 text-right">
+			<button class="btn btn-primary" (click)="onAddCard()">Créer une carte</button>
+		</div>
 	</div>
 </div>
