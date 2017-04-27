@@ -13,18 +13,18 @@ export class CardService {
 		this.selectedCard = 0;
 	}
 
-	addCard(cardData: {cardName: string, cardAttack: number, cardDefence: number}) {
+	addCard(cardData: {cardName: string, cardAttack: number, cardDefence: number, cardCost: number}) {
 	  	this.cards.push({
 	  		type: 'creature',
 	  		name: cardData.cardName,
 	  		attack: cardData.cardAttack,
 	  		defence: cardData.cardDefence,
+	  		cost: cardData.cardCost,
 	  		picture: 'arthas.jpg'
 	  	});
 	}
 
 	selectCard(cardNumber) {
-		console.log(cardNumber);
 		this.selectedCard = cardNumber;
 	}
 

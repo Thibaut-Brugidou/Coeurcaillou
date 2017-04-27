@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
+import { Component, ViewChild, ElementRef} from '@angular/core';
 import { CardService } from './card.service';
 
 @Component({
@@ -6,21 +6,21 @@ import { CardService } from './card.service';
   templateUrl: './add-card.component.html',
   styleUrls: ['./add-card.component.less']
 })
-export class AddCardComponent implements OnInit {
+
+export class AddCardComponent {
 	@ViewChild('cardName') name:ElementRef;
 	@ViewChild('cardAttack') attack:ElementRef;
-	@ViewChild('cardDefence') defence:ElementRef;
+  @ViewChild('cardDefence') defence:ElementRef;
+  @ViewChild('cardCost') cost:ElementRef;
 
   constructor(private cardService: CardService) { }
-
-  ngOnInit() {
-  }
 
   onAddCard() {
   	let newCard = {
   		cardName: this.name.nativeElement.value,
   		cardAttack: +this.attack.nativeElement.value,
-  		cardDefence: +this.defence.nativeElement.value
+      cardDefence: +this.defence.nativeElement.value,
+      cardCost: +this.cost.nativeElement.value
   	};
   	this.cardService.addCard(newCard);
   }
