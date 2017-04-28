@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef} from '@angular/core';
 import { CardService } from './card.service';
+import { Card } from './card';
 
 @Component({
   selector: 'cc-add-card',
@@ -8,20 +9,18 @@ import { CardService } from './card.service';
 })
 
 export class AddCardComponent {
-	@ViewChild('cardName') name:ElementRef;
-	@ViewChild('cardAttack') attack:ElementRef;
-  @ViewChild('cardDefence') defence:ElementRef;
-  @ViewChild('cardCost') cost:ElementRef;
+  newCard: Card = new Card();
 
-  constructor(private cardService: CardService) { }
+  constructor(private cardService: CardService) {
+    this.newCard.type = 'Creature';
+    this.newCard.picture = 'illidan.jpg';
+  }
+
+  onSubmit() {
+    console.log('pouet');
+  }
 
   onAddCard() {
-  	let newCard = {
-  		cardName: this.name.nativeElement.value,
-  		cardAttack: +this.attack.nativeElement.value,
-      cardDefence: +this.defence.nativeElement.value,
-      cardCost: +this.cost.nativeElement.value
-  	};
-  	this.cardService.addCard(newCard);
+    this.cardService.addCard(this.newCard);
   }
 }

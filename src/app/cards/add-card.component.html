@@ -1,23 +1,37 @@
-<div class="add-card">
+<form class="add-card"  (ngSubmit)="onSubmit()" #addCardForm="ngForm">
 	<div class="row">
 		<div class="col-xs-12">
 			<label for="Name">Name</label>
-			<input type="text" class="form-control" placeholder="Name" #cardName>
+			<input type="text" class="form-control" placeholder="Name" [(ngModel)]="newCard.name" name="Name">
 		</div>
-		<div class="col-xs-4">
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<label for="Type">Type</label>
+			<select class="form-control" [(ngModel)]="newCard.type" name="Type">
+				<option value="Creature">Creature</option>
+				<option value="Spell">Spell</option>
+				<option value="Equipment">Equipment</option>
+			</select>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-4" *ngIf="newCard.type=='Creature' || newCard.type=='Equipment'">
 			<label for="Attack">Attack</label>
-			<input type="text" size="2" class="form-control" placeholder="Attack" #cardAttack>
+			<input type="text" size="2" class="form-control" placeholder="Attack" [(ngModel)]="newCard.attack" name="Attack">
 		</div>
-		<div class="col-xs-4">
+		<div class="col-xs-4" *ngIf="newCard.type=='Creature' || newCard.type=='Equipment'">
 			<label for="Defence">Defence</label>
-			<input type="text" size="2" class="form-control" placeholder="Defence" #cardDefence>
+			<input type="text" size="2" class="form-control" placeholder="Defence" [(ngModel)]="newCard.defence" name="Defence">
 		</div>
 		<div class="col-xs-4">
 			<label for="Cost">Cost</label>
-			<input type="text" size="2" class="form-control" placeholder="Cost" #cardCost>
+			<input type="text" size="2" class="form-control" placeholder="Cost" [(ngModel)]="newCard.cost" name="Cost">
 		</div>
+	</div>
+	<div class="row">
 		<div class="col-xs-12 text-right">
 			<button class="btn btn-primary" (click)="onAddCard()">Créer une carte</button>
 		</div>
 	</div>
-</div>
+</form>
